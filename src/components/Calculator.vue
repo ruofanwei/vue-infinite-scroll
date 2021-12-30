@@ -2,7 +2,6 @@
 <template>
   <div class="h-14">
     <Screen />
-
     <div class="flex p-5 gap-4 items-stretch justify-center">
       <div class="grid grid-rows-3 grid-flow-col gap-4 justify-items-stretch">
         <Button
@@ -12,8 +11,6 @@
           rounded="lg"
           bg="cyan-500"
           class="w-40 h-full text-white text-2xl"
-          @keydown.enter.prevent
-          @keydown.space.prevent
         >
           {{ number }}
         </Button>
@@ -126,6 +123,7 @@ import Button from '../components/Button.vue'
 export default defineComponent({
   name: 'Calculator',
   components: { Screen, Button },
+
 })
 </script>
 <style scoped>
