@@ -1,5 +1,5 @@
 <template>
-  <button :class="` rounded-${rounded} bg-${bg} active:bg-${active}`" class="m-auto font-medium leading-6  text-center px-4 py-2 inline-block focus:outline-none transition shadow" >
+  <button :class="` rounded-${rounded} bg-${bg} active:bg-${active}`" class="text-2xl m-auto font-medium leading-6  text-center px-4 py-2 inline-block focus:outline-none transition shadow" >
       <slot></slot>
   </button>
 </template>
