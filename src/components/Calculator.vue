@@ -1,4 +1,4 @@
-/* eslint-disable vue/attribute-hyphenation */
+
 <template>
   <div class="h-14">
     <Screen />
@@ -35,6 +35,7 @@
         <Button
           v-for="number in [7, 8, 9]"
           :key="number"
+          active="transparent"
           class="w-20 h-20 border-cyan-500 border-2 text-stone-500 text-2xl"
         >
           {{ number }}
@@ -45,6 +46,7 @@
         <Button
           v-for="number in [4, 5, 6]"
           :key="number"
+          active="transparent"
           type="button"
           class="w-20 h-20 border-cyan-500 border-2 text-stone-500 text-2xl"
         >
@@ -57,6 +59,7 @@
           v-for="number in [1, 2, 3]"
           :key="number"
           type="button"
+          active="transparent"
           class="w-20 h-20 border-cyan-500 border-2 text-stone-500 text-2xl"
         >
           {{ number }}
@@ -66,15 +69,20 @@
         >
         <Button
           type="button"
+          active="transparent"
           class="w-20 h-20 border-cyan-500 border-2 text-stone-500 text-xl"
           >剛好</Button
         >
         <Button
           type="button"
+          active="transparent"
           class="w-20 h-20 border-cyan-500 border-2 text-stone-500 text-2xl"
           >0</Button
         >
-        <Button type="button" class="w-20 h-20 border-cyan-500 border-2"
+        <Button
+          type="button"
+          active="transparent"
+          class="w-20 h-20 border-cyan-500 border-2"
           ><svg
             width="382"
             height="246"
