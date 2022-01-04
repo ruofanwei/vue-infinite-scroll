@@ -39,7 +39,6 @@
           grid-cols-4 grid
         "
       >
-
         <Button
           v-for="number in ['7', '8', '9']"
           :key="number"

@@ -56,13 +56,9 @@ export function useCalculate() {
     function handlePlus(digit: string){
       const previous = Number(memory.value)
       const upcomingDigit = Number(digit)
-      const result = previous + upcomingDigit
-      console.log('previous', previous)
-      console.log('upcomingDigit', upcomingDigit)
-      console.log('result', result)
 
+      const result = previous + upcomingDigit
       memory.value = result.toString()
-      console.log('final', memory.value)
     }
 
 
