@@ -36,7 +36,7 @@
           h-full
           gap-4
           auto-rows-[minmax(50px,auto)]
-          grid-cols-4 grid
+          grid-cols-3 grid
         "
       >
         <Button
@@ -141,10 +141,7 @@ export default defineComponent({
   name: 'Calculator',
   components: { Screen, Button },
 
-
   setup: () => {
-
-
     const calculate = useCalculate()
     const keyboard = useKeyboard()
 
