@@ -6,6 +6,7 @@ export function useCalculate() {
     let memory = ref('')
     let error = ref(false)
     let clearOnNextDigit = ref(false)
+    console.log('memory', memory)
 
     function isOperator(string: string) {
       return OPERATORS.includes(string)
@@ -26,6 +27,7 @@ export function useCalculate() {
       }
 
       const lastDigit = memory.value[memory.value.length - 1]
+      console.log('lastDigit', lastDigit)
 
       if (lastDigit === '.' && digit === '.') return
       if (lastDigit === '0' && memory.value.length === 1) clear()
@@ -35,6 +37,8 @@ export function useCalculate() {
 
       clearOnNextDigit.value = false
       memory.value += `${digit}`
+      console.log('memory.value', memory.value)
+
     }
 
     function addOperator(operator: string) {
@@ -48,6 +52,20 @@ export function useCalculate() {
       clearOnNextDigit.value = false
       memory.value += `${operator}`
     }
+
+    function handlePlus(digit: string){
+      const previous = Number(memory.value)
+      const upcomingDigit = Number(digit)
+      const result = previous + upcomingDigit
+      console.log('previous', previous)
+      console.log('upcomingDigit', upcomingDigit)
+      console.log('result', result)
+
+      memory.value = result.toString()
+      console.log('final', memory.value)
+    }
+
+
 
     function calculateResult() {
       if (!memory.value) return
@@ -84,6 +102,7 @@ export function useCalculate() {
     return {
       memory: readonly(memory),
       error: readonly(error),
+      handlePlus,
       addDigit,
       addOperator,
       calculateResult,
