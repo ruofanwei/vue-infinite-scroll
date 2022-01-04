@@ -4,9 +4,10 @@ import { OPERATORS, DIGITS } from '../constants/calculatorData'
 export function useCalculate() {
 
     let memory = ref('')
+    let payable = ref('100')
+    let balance = ref('')
     let error = ref(false)
     let clearOnNextDigit = ref(false)
-    console.log('memory', memory)
 
     function isOperator(string: string) {
       return OPERATORS.includes(string)
@@ -27,7 +28,6 @@ export function useCalculate() {
       }
 
       const lastDigit = memory.value[memory.value.length - 1]
-      console.log('lastDigit', lastDigit)
 
       if (lastDigit === '.' && digit === '.') return
       if (lastDigit === '0' && memory.value.length === 1) clear()
@@ -37,7 +37,6 @@ export function useCalculate() {
 
       clearOnNextDigit.value = false
       memory.value += `${digit}`
-      console.log('memory.value', memory.value)
 
     }
 
@@ -61,26 +60,26 @@ export function useCalculate() {
       memory.value = result.toString()
     }
 
+    function handleMinus(){
+      const cash = Number(memory.value)
+      const payableAmount = Number(payable.value)
 
+      const result = cash - payableAmount
+      balance.value = result.toString()
+    }
+
+    function handleEqual(){
+      memory.value = payable.value
+    }
 
     function calculateResult() {
-      if (!memory.value) return
-
-      if (lastCharIsOperator(memory.value)) {
-        memory.value = memory.value.slice(0, memory.value.length - 1)
-      }
+      if (!memory.value || !payable.value) return balance.value = ''
 
       try {
-        const mathExpression = memory.value.replace(
-          /\b0*((\d+\.\d+|\d+))\b/g,
-          '$1'
-        ) // remove octal numeric
-        memory.value = `${eval(mathExpression)}`
+        handleMinus()
       } catch (_) {
         error.value = true
         memory.value = ''
-      } finally {
-        clearOnNextDigit.value = true
       }
     }
 
@@ -98,6 +97,9 @@ export function useCalculate() {
     return {
       memory: readonly(memory),
       error: readonly(error),
+      payable: readonly(payable),
+      balance: readonly(balance),
+      handleEqual,
       handlePlus,
       addDigit,
       addOperator,

@@ -1,7 +1,7 @@
 
 <template>
-  <div class="h-14">
-    <Screen :text="memory" :error="error" />
+  <div class="h-screen">
+    <Screen :text="memory" :error="error" :payable="payable" :balance="balance"  />
     <div class="flex p-5 gap-4 items-stretch justify-center">
       <div class="grid grid-rows-3 grid-flow-col gap-4 justify-items-stretch">
         <Button
@@ -75,7 +75,7 @@
           type="button"
           active="transparent"
           class="w-20 h-20 border-cyan-500 border-2 text-stone-500 text-xl"
-          @click="calculateResult"
+          @click="handleEqual"
           >剛好</Button
         >
         <Button
@@ -127,12 +127,11 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onBeforeUnmount, onMounted } from 'vue'
+import { defineComponent, onBeforeUnmount, onMounted,onUpdated } from 'vue'
 import Screen from '../components/Screen.vue'
 import Button from '../components/Button.vue'
 import {
   DIGITS,
-  RESULT_KEYS,
   ERASE_KEYS,
   CLEAR_KEYS,
 } from '../constants/calculatorData'
@@ -145,6 +144,7 @@ export default defineComponent({
 
   setup: () => {
 
+
     const calculate = useCalculate()
     const keyboard = useKeyboard()
 
@@ -153,10 +153,15 @@ export default defineComponent({
         const key = e.key === ',' ? '.' : e.key
         if (DIGITS.includes(key)) calculate.addDigit(key)
         if (DIGITS.includes(key)) calculate.handlePlus(key)
+        if (DIGITS.includes(key)) calculate.handleEqual()
         if (CLEAR_KEYS.includes(key)) calculate.clear()
-        if (RESULT_KEYS.includes(key)) calculate.calculateResult()
+        //if (RESULT_KEYS.includes(key)) calculate.calculateResult()
         if (ERASE_KEYS.includes(key)) calculate.eraseLast()
+
       })
+    })
+    onUpdated(() => {
+      calculate.calculateResult()
     })
     onBeforeUnmount(() => {
       keyboard.removeAllListeners()
