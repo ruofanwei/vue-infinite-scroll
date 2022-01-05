@@ -128,8 +128,8 @@
 
 <script lang="ts">
 import { defineComponent, onBeforeUnmount, onMounted,onUpdated } from 'vue'
-import Screen from '../components/Screen.vue'
-import Button from '../components/Button.vue'
+import Screen from './Screen.vue'
+import Button from './Button.vue'
 import {
   DIGITS,
   ERASE_KEYS,

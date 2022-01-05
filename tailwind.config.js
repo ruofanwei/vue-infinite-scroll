@@ -4,9 +4,10 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'regal-blue': '#243c5a',
+        primary: '#45526C',
+        sub: '#DCDCDC',
+        light: '#F4F4F4',
       },
-
     },
   },
   variants: {
