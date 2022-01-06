@@ -35,10 +35,10 @@
           rounded="lg"
           bg="primary"
           class="w-2/5 text-white"
-          @click="exampleModalShowing = true"
+          @click="ModalShowing = true"
           >結帳</Button
         >
-        <CardModal :showing="exampleModalShowing">
+        <CardModal :showing="ModalShowing" @close="ModalShowing = false">
           <Calculator/>
         </CardModal>
       </section>
@@ -55,7 +55,7 @@ export default defineComponent({
   name: 'Cart',
   components: { Button, CardModal ,Calculator},
   data() {
-    return { exampleModalShowing: false }
+    return { ModalShowing: false }
   },
 })
 </script >

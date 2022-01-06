@@ -1,6 +1,6 @@
 
 <template>
-  <div class="h-screen">
+  <div class="h-fit">
     <Screen :text="memory" :error="error" :payable="payable" :balance="balance"  />
     <div class="flex p-5 gap-4 items-stretch justify-center">
       <div class="grid grid-rows-3 grid-flow-col gap-4 justify-items-stretch">

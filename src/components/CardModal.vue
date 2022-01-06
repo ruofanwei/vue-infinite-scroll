@@ -14,9 +14,10 @@
     "
   >
     <div class="w-full max-w-2xl bg-light text-white shadow-lg rounded-lg p-8">
-       <button
+      <button
         aria-label="close"
-        class="absolute top-0 right-0 text-xl text-white my-2 mx-4"
+        type="button"
+        class="close absolute top-0 right-0 text-6xl text-primary my-2 mx-4"
         @click="$emit('close')"
       >
         ×
@@ -37,6 +38,7 @@ export default defineComponent({
     },
   },
   emits: ['close'],
+
 
 })
 </script>
