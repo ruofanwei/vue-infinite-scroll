@@ -23,7 +23,5 @@ export default defineComponent({
     balance: { type: String, default: "" },
   },
 
-
-
 });
 </script>

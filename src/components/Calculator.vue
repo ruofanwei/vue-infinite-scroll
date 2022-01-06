@@ -149,12 +149,8 @@ export default defineComponent({
       keyboard.addListener((e) => {
         const key = e.key === ',' ? '.' : e.key
         if (DIGITS.includes(key)) calculate.addDigit(key)
-        if (DIGITS.includes(key)) calculate.handlePlus(key)
-        if (DIGITS.includes(key)) calculate.handleEqual()
         if (CLEAR_KEYS.includes(key)) calculate.clear()
-        //if (RESULT_KEYS.includes(key)) calculate.calculateResult()
         if (ERASE_KEYS.includes(key)) calculate.eraseLast()
-
       })
     })
     onUpdated(() => {

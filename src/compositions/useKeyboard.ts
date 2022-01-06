@@ -5,6 +5,7 @@ export function useKeyboard() {
     const listeners = [] as ((e: KeyboardEvent) => void)[]
 
     function addListener(listener: (e: KeyboardEvent) => void) {
+      console.log('KeyboardEvent', KeyboardEvent)
       const listenerIndex = listeners.length
       listeners.push(listener)
       window.addEventListener(EVENT_NAME, listener)
