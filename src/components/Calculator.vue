@@ -7,10 +7,9 @@
         <Button
           v-for="number in ['100', '500', '1000']"
           :key="number"
+          variant="primary"
           type="button"
-          rounded="lg"
-          bg="cyan-500"
-          class="w-40 h-full text-white"
+          class="w-40 h-full"
           @click="handlePlus(number)"
         >
           {{ number }}
@@ -21,9 +20,8 @@
           v-for="number in ['1', '5', '10','50']"
           :key="number"
           type="button"
-          rounded="lg"
-          bg="cyan-500"
-          class="w-20 h-full text-white"
+          variant="primary"
+          class="w-20 h-20"
           @click="handlePlus(number)"
         >
           {{ number }}
@@ -42,8 +40,8 @@
         <Button
           v-for="number in ['7', '8', '9']"
           :key="number"
-          active="transparent"
-          class="w-20 h-20 border-cyan-500 border-2 text-stone-500"
+          variant="transparent"
+          class="w-20 h-20 "
           @click="addDigit(number)"
         >
           {{ number }}
@@ -52,9 +50,9 @@
         <Button
           v-for="number in ['4', '5', '6']"
           :key="number"
-          active="transparent"
+          variant="transparent"
           type="button"
-          class="w-20 h-20 border-cyan-500 border-2 text-stone-500"
+          class="w-20 h-20 "
           @click="addDigit(number)"
         >
           {{ number }}
@@ -64,8 +62,8 @@
           v-for="number in ['1', '2', '3']"
           :key="number"
           type="button"
-          active="transparent"
-          class="w-20 h-20 border-cyan-500 border-2 text-stone-500"
+          variant="transparent"
+          class="w-20 h-20 "
           @click="addDigit(number)"
         >
           {{ number }}
@@ -73,22 +71,22 @@
 
         <Button
           type="button"
-          active="transparent"
-          class="w-20 h-20 border-cyan-500 border-2 text-stone-500 text-xl"
+          variant="transparent"
+          class="w-20 h-20 text-xl"
           @click="handleEqual"
           >剛好</Button
         >
         <Button
           type="button"
-          active="transparent"
-          class="w-20 h-20 border-cyan-500 border-2 text-stone-500"
+          variant="transparent"
+          class="w-20 h-20 "
           @click="addDigit('0')"
           >0</Button
         >
         <Button
           type="button"
-          active="transparent"
-          class="w-20 h-20 border-cyan-500 border-2"
+          variant="transparent"
+          class="w-20 h-20 "
           @click="clear"
           ><svg
             width="382"
@@ -100,7 +98,7 @@
           >
             <path
               d="M120.262 15H357C362.523 15 367 19.4772 367 25V221C367 226.523 362.523 231 357 231H120.501C117.614 231 114.868 229.752 112.969 227.578L25.8924 127.876C22.5617 124.062 22.607 118.361 25.9978 114.601L112.836 18.3031C114.732 16.2003 117.431 15 120.262 15Z"
-              stroke="#78716C"
+              stroke="#45526C"
               stroke-width="30"
             />
             <line
@@ -109,13 +107,13 @@
               x2="174.014"
               y2="-15"
               transform="matrix(-0.809399 0.587259 -0.538547 -0.842596 300.344 56)"
-              stroke="#78716C"
+              stroke="#45526C"
               stroke-width="30"
               stroke-linecap="round"
             />
             <path
               d="M168.52 80.5268L291.897 174.5"
-              stroke="#78716C"
+              stroke="#45526C"
               stroke-width="30"
               stroke-linecap="round"
             />

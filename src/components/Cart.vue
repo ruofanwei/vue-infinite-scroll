@@ -26,15 +26,14 @@
       <section class="bg-light flex flex-none p-3 justify-around">
         <Button
           type="button"
-          active="transparent"
-          class="border-primary border-2 text-primary whitespace-nowrap"
+          variant="transparent"
+          class="whitespace-nowrap"
           >開始服務</Button
         >
         <Button
           type="button"
-          rounded="lg"
-          bg="primary"
-          class="w-2/5 text-white"
+          variant="primary"
+          class="w-2/5 "
           @click="ModalShowing = true"
           >結帳</Button
         >

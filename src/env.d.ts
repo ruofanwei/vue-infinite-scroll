@@ -7,3 +7,7 @@ declare module '*.vue' {
   export default component
 }
 
+declare module '*.svg' {
+  const filePath:string;
+  export default filePath
+}
