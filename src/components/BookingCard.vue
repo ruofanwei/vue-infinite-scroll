@@ -7,20 +7,13 @@
       bg-white
       rounded-lg
       shadow-lg
-      dark:bg-gray-800
       h-fit
+      px-4 py-2
     "
   >
-    <div class="px-4 py-2">
       <h1 class="text-3xl font-bold text-gray-800 uppercase dark:text-white">
-        first
+        <slot/>
       </h1>
-
-    </div>
-
-
-
-
   </div>
 </template>
 
@@ -28,6 +21,7 @@
 import { defineComponent } from 'vue'
 export default defineComponent({
   name: 'BookingCard',
+
 })
 </script>
 

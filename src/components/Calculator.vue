@@ -133,8 +133,8 @@ import {
   ERASE_KEYS,
   CLEAR_KEYS,
 } from '../constants/calculatorData'
-import { useCalculate } from '../compositions/useCalculate'
-import { useKeyboard } from '../compositions/useKeyboard'
+import { useCalculate } from '../composables/useCalculate'
+import { useKeyboard } from '../composables/useKeyboard'
 export default defineComponent({
   name: 'Calculator',
   components: { Screen, Button },
