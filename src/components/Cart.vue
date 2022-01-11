@@ -2,10 +2,11 @@
   <div class="bg-sub h-full w-[300px] flex flex-col justify-between">
     <!-- Cart header -->
     <div
-      class="text-center p-5 bg-primary text-white flex-none font-mono text-3xl"
+      class="text-center p-5 bg-primary text-white flex-none font-mono text-3xl "
     >
       Cart
     </div>
+    <slot/>
 
     <!-- Cart footer -->
     <div>

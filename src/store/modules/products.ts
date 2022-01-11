@@ -21,8 +21,8 @@ export default {
     productId: [],
   },
   getters: {
-    list(state: ProductState): Product[] {
-      return state.productId.map((i) => state.items[i])
+    products(state: ProductState): Product[] {
+      return state.items
     },
     loaded(state: ProductState): boolean {
       return state.items.length > 0

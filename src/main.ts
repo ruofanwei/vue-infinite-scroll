@@ -6,7 +6,7 @@ import store from './store/index'
 import 'tailwindcss/tailwind.css'
 import './index.css'
 
-const router = createRouter({
+export const router = createRouter({
   history: createWebHistory(),
   routes
 })

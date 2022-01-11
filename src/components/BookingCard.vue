@@ -3,7 +3,7 @@
     class="
       max-w-xs
       mx-auto
-      overflow-hidden
+
       bg-white
       rounded-lg
       shadow-lg
