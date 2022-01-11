@@ -20,6 +20,7 @@
           >取消</Button
         >
         <Button
+          v-show="loaded"
           v-if="selectMultiToCart === false"
           type="button"
           variant="primary"
@@ -28,13 +29,18 @@
           >合併進車</Button
         >
         <Button
+          v-show="loaded"
           type="button"
           variant="primary"
           class="whitespace-nowrap"
+          @click="isShow = true"
           >篩選條件</Button
         >
-
+        <CardModal variant="right" :showing="isShow" @close="isShow = false">
+          <FilterForm/>
+        </CardModal>
       </section>
+
       <div
         class="
           grid grid-rows-3 grid-flow-col
@@ -67,7 +73,8 @@ import Aside from '../components/Aside.vue'
 import BookingCard from '../components/BookingCard.vue'
 import BookingCardSkeleton from '../components/BookingCardSkeleton.vue'
 import store from '../store/index'
-
+import CardModal from '../components/CardModal.vue'
+import FilterForm from '../components/FilterForm.vue'
 export default defineComponent({
   name: 'Home',
   components: {
@@ -75,6 +82,8 @@ export default defineComponent({
     Aside,
     BookingCard,
     BookingCardSkeleton,
+    CardModal,
+    FilterForm
   },
   setup: () => {
     const { fetchAll } = useActions(['fetchAll'])
@@ -91,6 +100,7 @@ export default defineComponent({
   data() {
     return {
       selectMultiToCart: false,
+      isShow: false
     }
   },
 
