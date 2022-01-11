@@ -38,7 +38,7 @@
           @click="ModalShowing = true"
           >結帳</Button
         >
-        <CardModal :showing="ModalShowing" @close="ModalShowing = false">
+        <CardModal variant="middle" :showing="ModalShowing" @close="ModalShowing = false">
           <Calculator/>
         </CardModal>
       </section>

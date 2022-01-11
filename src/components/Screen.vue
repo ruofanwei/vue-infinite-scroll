@@ -4,7 +4,7 @@
       <p v-if="!error" class="text-center text-lg text-primary " data-test="text">
         結帳總金額 <span class="text-7xl text-blue-300">$ {{payable}} </span>
       </p>
-      <div class="flex space-x-0 text-neutral-400" >現金 $ {{cash}} </div>
+      <div class="flex space-x-0 text-neutral-400" >現金 $ {{text}} </div>
       <div  class="flex space-x-0 text-neutral-400">找零金額 $ {{balance}}</div>
       <button class="inline-block w-full px-6 py-2 text-xs font-medium leading-6 text-center text-white uppercase transition bg-primary rounded shadow ripple hover:shadow-lg hover:bg-cyan-500 focus:outline-none" >立即結帳</button>
     </div>
@@ -17,7 +17,7 @@ import { defineComponent} from "vue";
 export default defineComponent({
   name: "Screen",
   props: {
-    cash: { type: String, default: "" },
+    text: { type: String, default: "" },
     error: { type: Boolean, default: false },
     payable: {type: String, default: ""},
     balance: { type: String, default: "" },
