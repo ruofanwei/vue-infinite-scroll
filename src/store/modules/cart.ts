@@ -34,7 +34,7 @@ export default {
     addToCart(state: CartState, productId: number) {
       console.log('productId', productId)
       console.log(state.items)
-      let foundItem = state.items.find((item) => item.id === productId)
+      let foundItem = state.items.find((item) => item.productId === productId)
       console.log('foundItem', foundItem)
       //const targetIndex = state.items.indexOf(target)
 
@@ -51,8 +51,8 @@ export default {
       state.cartCount++
     },
     removeProduct(state: CartState, productId: number) {
-      const target = state.items.find((item) => item.id === productId)
-      const targetIndex = state.items.indexOf(target)
+      const target = state.items.find((item) => item.productId === productId)
+      const targetIndex = state.items.indexOf(target!)
 
       if (!target) {
         return

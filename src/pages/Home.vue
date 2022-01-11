@@ -19,8 +19,14 @@
         @click="addToCart(product.id)"
         >{{ product.id }}</BookingCard
       >
-      <Button type="button" variant="primary" class="whitespace-nowrap"
+      <Button v-if="selectMultiToCart === false"  type="button" variant="primary" class="whitespace-nowrap" @click="selectMultiToCart = true"
       >合併進車</Button
+    >
+     <Button v-if="selectMultiToCart === true" type="button" variant="primary" class="whitespace-nowrap" @click="confirmMultiToCart"
+      >確認</Button
+    >
+    <Button v-if="selectMultiToCart === true" type="button" variant="primary" class="whitespace-nowrap" @click="selectMultiToCart = false"
+      >取消</Button
     >
     </div>
   </div>
@@ -56,12 +62,25 @@ export default defineComponent({
       loaded,
     }
   },
+  data(){
+    return{
+      selectMultiToCart: false
+    }
+  },
 
   methods: {
     addToCart(id: number) {
-      store.commit('addToCart', id)
-      router.push('Menu')
+      if(!this.selectMultiToCart){
+        store.commit('addToCart', id)
+        router.push('Menu')
+      }else if(this.selectMultiToCart){
+        store.commit('addToCart', id)
+      }
+
     },
+    confirmMultiToCart(){
+      router.push('Menu')
+    }
   },
 })
 </script>
