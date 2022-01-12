@@ -11,7 +11,7 @@
       active:bg-sub
     "
   >
-      <h1 class="text-3xl font-bold text-gray-800 uppercase dark:text-white">
+      <h1 class="text-3xl font-bold text-gray-800 uppercase ">
         <slot/>
       </h1>
   </div>
