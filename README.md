@@ -9,5 +9,5 @@
 - commit message follow the [Conventional Commits format](https://www.conventionalcommits.org/en/v1.0.0/)
 - use [FakeStoreAPI](https://fakestoreapi.com/)
 
-
-![](https://i.imgur.com/iRzSDEA.gif)
+#### Preview
+![](https://i.imgur.com/PMaRtIC.gif)
