@@ -2,7 +2,9 @@
 > [Demo](https://vue-infinite-scroll-ruofanwei.vercel.app/)
 ### Features
 - load more data while user scroll view to bottom
-- e2e test :  simulate user scroll view to bottom and observe the load more action
+- e2e test
+    - simulate user scroll view to bottom and observe the load more action
+
 
 ### Setup
 - optimization the developer experience : make aliases for file paths
