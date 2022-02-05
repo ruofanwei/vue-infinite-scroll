@@ -1,0 +1,11 @@
+{
+  "baseUrl": "http://localhost:3000",
+  "integrationFolder": "e2e",
+  "pluginsFile": false,
+  "supportFile": false,
+  "video": false,
+  "env": {
+    "VITE_API_URL": "https://fakestoreapi.com/products?limit=5",
+    "VITE_LOADMORE_URL": "https://fakestoreapi.com/products?limit=5"
+  }
+}
