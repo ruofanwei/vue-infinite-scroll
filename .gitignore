@@ -4,3 +4,4 @@ dist
 dist-ssr
 *.local
 cypress.env.json
+cypress/
