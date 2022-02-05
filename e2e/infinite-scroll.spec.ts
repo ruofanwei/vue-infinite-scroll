@@ -4,7 +4,7 @@ describe('simulate infinite scroll', () => {
   it('should display header text', () => {
     cy.visit('/')
 
-    cy.request(Cypress.env('VITE_API_URL'))
+    cy.request(Cypress.env('CYPRESS_API_URL'))
       .then((response) => {
         expect(response.status).to.equal(200)
         let data = JSON.stringify(response)
@@ -20,7 +20,7 @@ describe('simulate infinite scroll', () => {
 
     cy.scrollTo('bottom', { duration: 3000 }).wait(500)
 
-    cy.request(Cypress.env('VITE_LOADMORE_URL'))
+    cy.request(Cypress.env('CYPRESS_LOADMORE_URL'))
       .then((response) => {
         expect(response.status).to.equal(200)
         let data = JSON.stringify(response)
