@@ -58,11 +58,9 @@ export default defineComponent({
     const total = computed(() => store.getters['total'])
 
     function intersected() {
-      setTimeout(() => {
         store.dispatch('GET_PRODUCT', limit.value)
         if (products.value.length >= total.value) return
         limit.value += 5
-      }, 1000)
     }
     return {
       products,

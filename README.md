@@ -1,7 +1,11 @@
 ### Vue infinite-scroll
 > [Demo](https://vue-infinite-scroll-ruofanwei.vercel.app/)
 ### Features
-- load more data while user scroll view to bottom
+- load more data while user scroll view to
+bottom
+    - way 1 : use [event listeners on the scroll, resize and orientationChange events in the browser](https://html.spec.whatwg.org/multipage/webappapis.html#event-handlers-on-elements,-document-objects,-and-window-objects)
+    - way 2 : using the [Intersection Observer API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API) detect when an element enters the viewport and take an action
+    - event listeners vs. Intersection Observer
 - e2e test
     - simulate user scroll view to bottom and observe the load more action
 
