@@ -16,12 +16,12 @@
   >
     Infinite Scroll
   </nav>
-  <div class="p-14">
-    <div ref="list" class="overflow-scroll">
+  <div class="p-14 h-screen">
+
       <div
         v-for="product in products"
         :key="product.id"
-        class="p-5 font-mono text-primary  leading-10"
+        class="pb-5 pt-5 font-mono text-primary leading-10"
       >
         <div>
           {{ product.title }}
@@ -29,57 +29,45 @@
           <div class="text-gray-400">{{ product.description }}</div>
         </div>
       </div>
+
+    <div class="flex justify-center p-10 h-32">
+      <Loading v-show="loading" />
     </div>
-    <div  class="flex justify-center p-10">
-      <Loading v-show="loading"/>
-    </div>
+
+    <Observer @intersect="intersected" />
   </div>
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, onMounted} from 'vue'
+import { computed, defineComponent, ref } from 'vue'
 import { useStore } from 'vuex'
 import Loading from '@/components/Loading.vue'
-
+import Observer from '@/components/Observer.vue'
 
 export default defineComponent({
   name: 'App',
-  components:{
-    Loading
+  components: {
+    Loading,
+    Observer,
   },
   setup: () => {
-
     const store = useStore()
+    const limit = ref(5)
     const loading = computed(() => store.getters['loading'])
     const products = computed(() => store.getters['products'])
+    const total = computed(() => store.getters['total'])
 
-    onMounted(() => {
-      store.dispatch('GET_PRODUCT')
-      intersectionObserver()
-    })
-    function intersectionObserver() {
-      window.onscroll = () => {
-        const bottomOfWrapper =
-          Math.max(
-            window.pageYOffset,
-            document.documentElement.scrollTop,
-            document.body.scrollTop
-          ) +
-            window.innerHeight ===
-          document.documentElement.offsetHeight
-
-        if (bottomOfWrapper) {
-          store.commit('nextPage')
-          setTimeout(() => {
-            store.dispatch('LOAD_MORE_PRODUCT')
-          }, 1000)
-        }
-      }
+    function intersected() {
+      setTimeout(() => {
+        store.dispatch('GET_PRODUCT', limit.value)
+        if (products.value.length >= total.value) return
+        limit.value += 5
+      }, 1000)
     }
     return {
       products,
-      loading
-
+      loading,
+      intersected,
     }
   },
 })

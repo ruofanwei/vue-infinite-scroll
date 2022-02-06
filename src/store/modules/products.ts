@@ -31,24 +31,34 @@ export default {
     loading(state: ProductState): boolean {
       return state.loading
     },
+    total(state: ProductState): number {
+      return state.total
+    },
   },
   actions: {
-    async GET_PRODUCT({
-      commit,
-      state,
-    }: {
-      commit: Commit
-      state: ProductState
-    }) {
+    async GET_PRODUCT(
+      {
+        commit,
+        state,
+      }: {
+        commit: Commit
+        state: ProductState
+      },
+      payload: number
+    ) {
       return new Promise((resolve, reject) => {
         const limit = state.limit
+
+        if (state.total <= state.items.length)
+          return commit('convertLoadStatus', false)
         commit('convertLoadStatus', true)
-        fetch(`${import.meta.env.VITE_API_URL}/products?limit=${limit}`)
+        fetch(`${import.meta.env.VITE_API_URL}/products?limit=${payload}`)
           .then(async (res) => {
             const data = await res.json()
             resolve(data)
             commit('setProducts', data)
             commit('convertLoadStatus', false)
+            commit('nextPage')
           })
           .catch((error) => {
             commit('convertLoadStatus', false)
@@ -67,7 +77,7 @@ export default {
         const limit = state.limit
         if (state.total <= state.items.length)
           return commit('convertLoadStatus', false)
-          commit('convertLoadStatus', true)
+        commit('convertLoadStatus', true)
         fetch(`${import.meta.env.VITE_API_URL}/products?limit=${limit}`)
           .then(async (res) => {
             const data: Product[] = await res.json()
